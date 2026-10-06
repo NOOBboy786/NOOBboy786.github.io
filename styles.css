@@ -47,7 +47,7 @@ a:hover{color:var(--indigo-bright)}
 .scene{position:relative;overflow:hidden}
 .scene-hero{min-height:92svh;display:flex;align-items:center;padding:4rem 0}
 .layer{position:absolute;inset:0;pointer-events:none}
-.layer.depth-4{position:relative;inset:auto;pointer-events:auto}
+.layer.depth-4{position:relative;inset:auto;pointer-events:auto;width:100%}
 .wash{position:absolute;inset:-12%;background:
   radial-gradient(60% 50% at 78% 18%,var(--sand) 0%,transparent 70%),
   radial-gradient(50% 40% at 12% 85%,var(--paper-2) 0%,transparent 65%)}

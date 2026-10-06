@@ -100,22 +100,26 @@
         });
       });
     });
-    /* letter-spacing scrub on titles */
-    document.querySelectorAll(".scrub-title").forEach(function (el) {
-      gsap.fromTo(el, { letterSpacing: "0.18em", opacity: 0.35 }, {
-        letterSpacing: "0.02em", opacity: 1, ease: "none",
-        scrollTrigger: { trigger: el, start: "top 85%", end: "top 30%", scrub: 1 }
+    /* letter-spacing scrub on titles — driven by the story track (sticky children
+       never move relative to the viewport, so element triggers would freeze) */
+    function scrubTitles(p) {
+      var q = Math.min(1, Math.max(0, p / 0.35));
+      document.querySelectorAll(".scrub-title").forEach(function (el) {
+        el.style.letterSpacing = (0.18 - q * 0.16).toFixed(3) + "em";
+        el.style.opacity = (0.35 + q * 0.65).toFixed(2);
       });
-    });
-    /* pinned signature moment -> tree growth */
+    }
+    /* pinned signature moment -> tree growth + title settle */
     if (track) {
       ScrollTrigger.create({
         trigger: track, start: "top 80%", end: "bottom 45%", scrub: 1,
         onUpdate: function (self) {
           window.__signatureProgress = self.progress;
           window.dispatchEvent(new Event("signature-progress"));
+          scrubTitles(self.progress);
         }
       });
+      scrubTitles(window.__signatureProgress || 0);
     }
   } else {
     /* vanilla rAF fallback (offline): single scroll clock */
@@ -137,15 +141,22 @@
         el.style.transform = "translate3d(0," + ((r.top + r.height / 2 - vh / 2) * (d * 0.06 - 0.12)).toFixed(1) + "px,0)";
       });
       scrubs.forEach(function (el) {
-        var r = el.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) return;
-        var p = 1 - Math.min(1, Math.max(0, (r.top - vh * 0.15) / (vh * 0.7)));
-        el.style.letterSpacing = (0.02 + (1 - p) * 0.16).toFixed(3) + "em";
-        el.style.opacity = (0.35 + p * 0.65).toFixed(2);
+        if (!track) {
+          var r = el.getBoundingClientRect();
+          if (r.bottom < 0 || r.top > vh) return;
+          var p = 1 - Math.min(1, Math.max(0, (r.top - vh * 0.15) / (vh * 0.7)));
+          el.style.letterSpacing = (0.02 + (1 - p) * 0.16).toFixed(3) + "em";
+          el.style.opacity = (0.35 + p * 0.65).toFixed(2);
+        }
       });
       if (track) {
         window.__signatureProgress = progressOf(track, vh * 0.9, -vh * 0.4);
         window.dispatchEvent(new Event("signature-progress"));
+        var q = Math.min(1, Math.max(0, window.__signatureProgress / 0.35));
+        scrubs.forEach(function (el) {
+          el.style.letterSpacing = (0.18 - q * 0.16).toFixed(3) + "em";
+          el.style.opacity = (0.35 + q * 0.65).toFixed(2);
+        });
       }
     }
     function requestFrame() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }

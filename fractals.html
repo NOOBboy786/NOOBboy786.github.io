@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractal Laboratory — Atelier &amp; Fractals</title>
+<meta name="description" content="Live interactive fractals: escape-time, IFS, L-systems. Zero libraries.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body data-page="fractals">
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">A/F</span><span class="brand-name">Atelier &amp; Fractals</span></a>
+  <nav class="tabs" aria-label="Primary">
+    <a href="index.html" data-tab="about">About</a>
+    <a href="interests.html" data-tab="interests">Interests</a>
+    <a href="architecture.html" data-tab="architecture">Architecture</a>
+    <a href="fractals.html" data-tab="fractals">Fractals</a>
+    <a href="gallery.html" data-tab="gallery">Gallery</a>
+    <a href="projects.html" data-tab="projects">Projects</a>
+    <a href="github.html" data-tab="github">GitHub</a>
+    <a href="links.html" data-tab="links">Links</a>
+  </nav>
+</header>
+
+<main>
+  <div class="container page-head">
+    <p class="kicker reveal">04 — Fractal Laboratory</p>
+    <h1 class="display"><span class="mask-line"><span>Infinity,</span></span>
+      <span class="mask-line"><span><em>rendered live.</em></span></span></h1>
+    <p class="lede reveal">Three instruments, zero libraries. Everything below is computed
+      in your browser the moment you open a tab.</p>
+  </div>
+
+  <div class="container">
+    <div class="lab-tabs" role="tablist" aria-label="Fractal families">
+      <button data-lab="escape" aria-selected="true" role="tab">Escape-time</button>
+      <button data-lab="ifs" aria-selected="false" role="tab">IFS</button>
+      <button data-lab="lsys" aria-selected="false" role="tab">L-systems</button>
+    </div>
+
+    <!-- ESCAPE-TIME -->
+    <section class="lab-panel on" id="panel-escape" role="tabpanel">
+      <h2 class="section">Escape-time</h2>
+      <p class="formula">z<sub>n+1</sub> = z<sub>n</sub>² + c — if |z| escapes past 2, the point flees; the count of steps before flight paints the image.</p>
+      <div class="lab-grid">
+        <div><canvas id="escapeCanvas" class="fractal" role="img" aria-label="Interactive Mandelbrot and Julia set renderer"></canvas>
+        <p class="meta">Click to zoom · Shift-click to zoom out · Mandelbrot only.</p></div>
+        <div class="controls">
+          <label for="escMode">Set</label>
+          <select id="escMode"><option value="mandelbrot">Mandelbrot</option><option value="julia">Julia</option></select>
+          <label for="escIter">Max iterations <output id="escIterVal">120</output></label>
+          <input type="range" id="escIter" min="30" max="300" value="120" step="10">
+          <div id="juliaCtl" style="display:none">
+            <label for="jx">Re(c) <output id="jxVal"></output></label>
+            <input type="range" id="jx" min="-1" max="1" value="-0.8" step="0.005">
+            <label for="jy">Im(c)</label>
+            <input type="range" id="jy" min="-1" max="1" value="0.156" step="0.005">
+          </div>
+          <div class="row">
+            <button class="mini-btn" id="escAnimate">Animate c</button>
+            <button class="mini-btn" id="escZoomIn">Zoom +</button>
+            <button class="mini-btn" id="escZoomOut">Zoom −</button>
+            <button class="mini-btn" id="escReset">Reset</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IFS -->
+    <section class="lab-panel" id="panel-ifs" role="tabpanel">
+      <h2 class="section">Iterated function systems</h2>
+      <p class="formula">Pick random affine maps by probability, plot the point, repeat 90,000× — order condenses out of chaos.</p>
+      <div class="lab-grid">
+        <div><canvas id="ifsCanvas" class="fractal" role="img" aria-label="Animated IFS chaos-game plot"></canvas>
+        <p class="meta">Points plotted: <span id="ifsCount">0</span></p></div>
+        <div class="controls">
+          <label for="ifsSet">System</label>
+          <select id="ifsSet">
+            <option value="fern">Barnsley fern</option>
+            <option value="sierpinski">Sierpinski triangle</option>
+            <option value="dragon">Heighway dragon</option>
+          </select>
+          <div class="row"><button class="mini-btn" id="ifsRestart">Regrow</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- L-SYSTEMS -->
+    <section class="lab-panel" id="panel-lsys" role="tabpanel">
+      <h2 class="section">L-systems</h2>
+      <p class="formula">An axiom rewritten in parallel, then walked by a turtle — the grammar of plants, snowflakes and space-filling curves.</p>
+      <div class="lab-grid">
+        <div><canvas id="lsysCanvas" class="fractal" role="img" aria-label="L-system turtle drawing"></canvas>
+        <p class="meta">Segments: <span id="lsysCount">0</span></p></div>
+        <div class="controls">
+          <label for="lsysPreset">Grammar</label>
+          <select id="lsysPreset">
+            <option value="tree">Branching tree</option>
+            <option value="koch">Koch snowflake</option>
+            <option value="hilbert">Hilbert curve</option>
+            <option value="sierpinski">Sierpinski (L-system)</option>
+          </select>
+          <label for="lsysIter">Iterations <output id="lsysIterVal">5</output></label>
+          <input type="range" id="lsysIter" min="1" max="7" value="5" step="1">
+          <label for="lsysAngle">Angle <output id="lsysAngleVal">22.5°</output></label>
+          <input type="range" id="lsysAngle" min="10" max="120" value="22.5" step="0.5">
+          <div class="row"><button class="mini-btn" id="lsysGrow">Grow</button></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <p>© <span id="year">2026</span> Sagnik Ray — placeholder edition.</p>
+    <p><a href="links.html">Elsewhere →</a></p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="site.js?v=4"></script>
+<script src="fractals.js?v=3"></script>
+</body>
+</html>

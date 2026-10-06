@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Atelier &amp; Fractals</title>
+<meta name="description" content="Personal portfolio: architecture, Indian structural design, and fractal art. Placeholder edition.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body data-page="about">
+
+<!-- Techniques applied (epic-design + cinematic-scroll editorial recipe):
+  hero-parallax (depth 0-5, data-depth), masked line reveal (h1 .mask-line),
+  letter-spacing scrub (.scrub-title), clip-path birth (.plate), stagger grid,
+  pinned signature moment (fractal hero canvas, sticky stage), reduced-motion + no-JS fallbacks. -->
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">A/F</span><span class="brand-name">Atelier &amp; Fractals</span></a>
+  <nav class="tabs" aria-label="Primary">
+    <a href="index.html" data-tab="about">About</a>
+    <a href="interests.html" data-tab="interests">Interests</a>
+    <a href="architecture.html" data-tab="architecture">Architecture</a>
+    <a href="fractals.html" data-tab="fractals">Fractals</a>
+    <a href="gallery.html" data-tab="gallery">Gallery</a>
+    <a href="projects.html" data-tab="projects">Projects</a>
+    <a href="github.html" data-tab="github">GitHub</a>
+    <a href="links.html" data-tab="links">Links</a>
+  </nav>
+</header>
+
+<main>
+  <!-- HERO SCENE -->
+  <section class="scene scene-hero" data-scene="hero">
+    <div class="layer depth-0" data-depth="0" aria-hidden="true"><div class="wash"></div></div>
+    <div class="layer depth-1" data-depth="1" aria-hidden="true"><div class="glow glow-a"></div></div>
+    <div class="layer depth-2" data-depth="2" aria-hidden="true">
+      <div class="rule-vertical" style="left:12%"></div>
+      <div class="rule-vertical" style="right:12%"></div>
+    </div>
+    <div class="layer depth-4" data-depth="4">
+      <div class="hero-grid">
+        <div>
+          <p class="kicker reveal">01 — About Me</p>
+          <h1 class="display">
+            <span class="mask-line"><span>Architecture drawn,</span></span>
+            <span class="mask-line"><span>mathematics <em>grown.</em></span></span>
+          </h1>
+          <p class="lede reveal">I am <strong>Sagnik Ray</strong> —
+            an architecture enthusiast and generative-art explorer working between
+            Indian structural traditions and the infinite detail of fractals.</p>
+          <div class="cta-row reveal">
+            <a class="btn" href="architecture.html">Enter the archive</a>
+            <a class="btn ghost" href="fractals.html">See live fractals</a>
+          </div>
+        </div>
+        <figure class="plate plate-hero"><img src="assets/photo/hero-palace.jpg" alt="East facade of the Hawa Mahal, Jaipur"><figcaption>Plate 01 — Hawa Mahal · photo: Wikimedia Commons</figcaption></figure>
+      </div>
+    </div>
+    <div class="layer depth-5" data-depth="5" aria-hidden="true"><div class="grain"></div></div>
+  </section>
+
+  <!-- STORY TRACK: pinned signature moment (dark interlude) -->
+  <section class="story-track band-dark" id="signature">
+    <div class="sticky-stage">
+      <div class="container split">
+        <div class="reading">
+          <p class="kicker">Signature — Two disciplines, one geometry</p>
+          <h2 class="scrub-title">Load-bearing walls and iterated functions obey the same patient logic.</h2>
+          <p>Scroll to grow the tree. A few lines of recursion produce a monsoon-season neem;
+            a few courses of brick produce a home that survives one. This site is my
+            notebook for both crafts.</p>
+          <p class="meta">Canvas draws live — no images, no libraries. Scroll progress drives growth.</p>
+        </div>
+        <div class="stage-figure">
+          <canvas id="heroTree" width="520" height="640" aria-label="Procedurally drawn tree that grows as you scroll" role="img"></canvas>
+          <noscript><p class="fallback">A recursive tree sketch lives here when JavaScript is enabled.</p></noscript>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO beats -->
+  <section class="container beats">
+    <article class="beat reveal">
+      <p class="beat-no">02</p>
+      <div><h3>Who I am</h3>
+      <p><!-- PLACEHOLDER bio -->I study how buildings stand up — from vernacular Indian
+        masonry to earthquake-resistant frames — and how mathematics draws itself:
+        escape-time fractals, iterated function systems, and L-systems. By day I
+        sketch sections; by night I tune escape radii.</p></div>
+    </article>
+    <article class="beat reveal">
+      <p class="beat-no">03</p>
+      <div><h3>What this site holds</h3>
+      <ul class="index-list">
+        <li><a href="architecture.html">Architecture archive</a><span>green, seismic-safe &amp; waste-built</span></li>
+        <li><a href="fractals.html">Fractal laboratory</a><span>escape-time · IFS · L-systems, all live</span></li>
+        <li><a href="projects.html">Projects</a><span>selected work &amp; experiments</span></li>
+        <li><a href="github.html">GitHub</a><span>live repository feed</span></li>
+      </ul></div>
+    </article>
+    <article class="beat reveal">
+      <p class="beat-no">04</p>
+      <div><h3>Currently</h3>
+      <p><!-- PLACEHOLDER -->Learning <strong>X</strong>, reading <strong>Y</strong>,
+        modelling a <strong>courtyard house for a hot-dry climate</strong>. Open to
+        collaborations on low-carbon construction and creative coding.</p></div>
+    </article>
+  </section>
+  <!-- CTA BAND (design-system: primary action before close) -->
+  <section class="band-blush">
+    <div class="container beats" style="padding:3rem 0">
+      <article class="beat reveal" style="border-top:0">
+        <p class="beat-no">05</p>
+        <div><h3>Have a courtyard, a codebase, or a crazy geometry?</h3>
+        <p>I take on one collaboration at a time — low-carbon builds and creative-code
+          experiments welcome.</p>
+        <div class="cta-row"><a class="btn" href="links.html">Get in touch</a>
+        <a class="btn ghost" href="projects.html">See the work</a></div></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <p>© <span id="year">2026</span> Sagnik Ray — placeholder edition.</p>
+    <p><a href="links.html">Elsewhere →</a></p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="site.js?v=4"></script>
+<script src="fractals.js?v=3"></script>
+</body>
+</html>

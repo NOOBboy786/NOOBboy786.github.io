@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Jaali lattice pattern study">
+  <rect width="600" height="600" fill="#f7f2e9"/>
+  <g fill="none" stroke="#4a3a2c" stroke-width="2">
+    <!-- eight-point star lattice -->
+    <g id="cell">
+      <rect x="-60" y="-60" width="120" height="120"/>
+      <circle cx="0" cy="0" r="42"/>
+      <circle cx="0" cy="0" r="26" stroke="#9a5b2e"/>
+      <path d="M-60,-60 L60,60 M60,-60 L-60,60" stroke-width="1"/>
+      <path d="M0,-60 L0,-42 M0,42 L0,60 M-60,0 L-42,0 M42,0 L60,0"/>
+    </g>
+    <use href="#cell" x="90" y="90"/><use href="#cell" x="210" y="90"/><use href="#cell" x="330" y="90"/><use href="#cell" x="450" y="90"/><use href="#cell" x="510" y="90"/>
+    <use href="#cell" x="90" y="210"/><use href="#cell" x="210" y="210"/><use href="#cell" x="330" y="210"/><use href="#cell" x="450" y="210"/><use href="#cell" x="510" y="210"/>
+    <use href="#cell" x="90" y="330"/><use href="#cell" x="210" y="330"/><use href="#cell" x="330" y="330"/><use href="#cell" x="450" y="330"/><use href="#cell" x="510" y="330"/>
+    <use href="#cell" x="90" y="450"/><use href="#cell" x="210" y="450"/><use href="#cell" x="330" y="450"/><use href="#cell" x="450" y="450"/><use href="#cell" x="510" y="450"/>
+  </g>
+  <rect x="30" y="30" width="540" height="540" fill="none" stroke="#2b2620" stroke-width="3"/>
+  <text x="300" y="578" text-anchor="middle" font-family="Georgia,serif" font-size="20" letter-spacing="6" fill="#5c554a">JAALI — SCREEN STUDY</text>
+</svg>

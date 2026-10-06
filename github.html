@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub — Atelier &amp; Fractals</title>
+<meta name="description" content="Live GitHub repository feed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body data-page="github">
+
+<header class="topbar">
+  <a class="brand" href="index.html"><span class="brand-mark">A/F</span><span class="brand-name">Atelier &amp; Fractals</span></a>
+  <nav class="tabs" aria-label="Primary">
+    <a href="index.html" data-tab="about">About</a>
+    <a href="interests.html" data-tab="interests">Interests</a>
+    <a href="architecture.html" data-tab="architecture">Architecture</a>
+    <a href="fractals.html" data-tab="fractals">Fractals</a>
+    <a href="gallery.html" data-tab="gallery">Gallery</a>
+    <a href="projects.html" data-tab="projects">Projects</a>
+    <a href="github.html" data-tab="github">GitHub</a>
+    <a href="links.html" data-tab="links">Links</a>
+  </nav>
+</header>
+
+<main>
+  <div class="container page-head">
+    <p class="kicker reveal">06 — GitHub</p>
+    <h1 class="display"><span class="mask-line"><span>Code,</span></span>
+      <span class="mask-line"><span><em>in the open.</em></span></span></h1>
+    <p class="lede reveal" id="ghNote">Fetching the live feed…</p>
+    <div class="photo-grid reveal"><figure class="photo-item wide"><img src="assets/photo/lattice.jpg" alt="Stone lattice detail" loading="lazy"><figcaption>Structure as pattern · photo: Wikimedia Commons</figcaption></figure></div>
+  </div>
+  <section class="container">
+    <div class="repo-grid" id="repoGrid" aria-live="polite"></div>
+    <noscript><p class="fallback">The live feed needs JavaScript; find everything at github.com/yourusername.</p></noscript>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <p>© <span id="year">2026</span> Sagnik Ray — placeholder edition.</p>
+    <p><a href="links.html">Elsewhere →</a></p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="site.js?v=4"></script>
+<script src="github.js?v=3"></script>
+</body>
+</html>

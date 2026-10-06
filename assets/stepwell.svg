@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-label="Stepwell descent study">
+  <rect width="600" height="600" fill="#f7f2e9"/>
+  <g stroke="#2b2620" stroke-width="2.5" fill="none">
+    <!-- mirrored stepped descent -->
+    <path d="M60,80 H200 V140 H260 V200 H320 V260 H360 V320 H400 V380 H430 V440 H470 V500 H540"/>
+    <path d="M540,80 H400 V140 H340 V200 H280 V260 H240 V320 H200 V380 H170 V440 H130 V500 H60"/>
+    <line x1="60" y1="80" x2="540" y2="80"/>
+  </g>
+  <!-- water -->
+  <rect x="130" y="470" width="340" height="60" fill="#e3d5bd"/>
+  <g stroke="#9a5b2e" stroke-width="1.5">
+    <path d="M150,490 q15,-8 30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0" fill="none"/>
+    <path d="M150,510 q15,-8 30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0 t30,0" fill="none"/>
+  </g>
+  <rect x="60" y="40" width="480" height="560" fill="none" stroke="#2b2620" stroke-width="3"/>
+  <text x="300" y="582" text-anchor="middle" font-family="Georgia,serif" font-size="20" letter-spacing="6" fill="#5c554a">VAV — GEOMETRY OF DESCENT</text>
+</svg>

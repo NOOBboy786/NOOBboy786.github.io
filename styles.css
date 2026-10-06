@@ -75,8 +75,8 @@ a:hover{color:var(--indigo-bright)}
 .kicker{font-family:var(--grot);font-size:.86rem;letter-spacing:.22em;text-transform:uppercase;color:var(--indigo);
   margin:0 0 1rem;display:flex;align-items:center;gap:.8rem}
 .kicker::before{content:"";width:2.2rem;height:1px;background:var(--marigold)}
-.display{font-family:var(--serif);font-weight:500;font-size:clamp(3.4rem,8vw,6.6rem);
-  line-height:1.02;margin:0 0 1.4rem;letter-spacing:-.01em}
+.display{font-family:var(--serif);font-weight:500;font-size:clamp(2.5rem,13vw,6.6rem);
+  line-height:1.02;margin:0 0 1.4rem;letter-spacing:-.01em;overflow-wrap:break-word}
 .display em{font-style:italic;color:var(--marigold-deep)}
 .mask-line{display:block;overflow:hidden}
 .js-motion .mask-line>span{display:block;transform:translateY(110%);transition:transform 1s var(--ease)}
@@ -180,6 +180,25 @@ canvas.fractal{width:100%;height:auto;display:block;border:1px solid var(--rule)
 .formula{font-family:Georgia,serif;font-style:italic;background:var(--paper-2);
   border-left:3px solid var(--cognac);padding:.7rem 1rem;margin:1rem 0}
 
+/* ---------- photo deck (hero fan) ---------- */
+html,body{overflow-x:clip}
+.deck-wrap{position:relative;z-index:1;justify-self:end;width:100%;max-width:440px}
+.deck{position:relative;aspect-ratio:3/4;max-height:min(70svh,600px);width:100%;margin:0 auto}
+.deck-card{position:relative;margin:0 0 1rem;border:1px solid var(--rule);background:var(--paper-2);padding:.55rem}
+.deck-card img{display:block;width:100%;aspect-ratio:3/3.4;object-fit:cover;background:var(--paper-2)}
+.deck-card figcaption{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);padding:.55rem .15rem .1rem}
+.deck-card figcaption span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+html.js-motion .deck-card{position:absolute;inset:0;margin:0;box-shadow:0 30px 60px -30px rgba(43,38,32,.45);cursor:pointer}
+html.js-motion .deck-card img{height:100%}
+.deck-dots{display:none;gap:.15rem;justify-content:center;margin-top:1.1rem}
+html.js-motion .deck-dots{display:flex}
+.deck-dots button{width:44px;height:44px;background:transparent;border:0;cursor:pointer;position:relative}
+.deck-dots button::after{content:"";position:absolute;left:50%;top:50%;width:9px;height:9px;border-radius:50%;
+  transform:translate(-50%,-50%);background:var(--faint);transition:background .3s,transform .3s}
+.deck-dots button[aria-current="true"]::after{background:var(--marigold);transform:translate(-50%,-50%) scale(1.5)}
+.deck-hint{text-align:center}
+.band-dark .deck-card{background:#2c2318;border-color:var(--rule-light)}
+
 /* ---------- gallery ---------- */
 .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.4rem;margin:1.6rem 0 2rem}
 .g-item{margin:0;border:1px solid var(--rule);background:rgba(255,255,255,.35);padding:.7rem;
@@ -204,7 +223,10 @@ canvas.fractal{width:100%;height:auto;display:block;border:1px solid var(--rule)
 /* ---------- responsive ---------- */
 @media (max-width:860px){
   .split,.lab-grid,.hero-grid{grid-template-columns:1fr}
+  .display{font-size:clamp(2.4rem,11vw,3.4rem)}
   .plate-hero{justify-self:start;max-width:min(78vw,340px)}
+  .deck-wrap{justify-self:start;max-width:min(80vw,340px)}
+  .deck{max-height:62svh}
   .story-track{height:auto}
   .sticky-stage{position:relative;height:auto;padding:3rem 0}
   .beat{grid-template-columns:1fr;gap:.2rem}

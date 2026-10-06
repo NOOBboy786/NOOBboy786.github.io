@@ -103,10 +103,12 @@
     /* letter-spacing scrub on titles — driven by the story track (sticky children
        never move relative to the viewport, so element triggers would freeze) */
     function scrubTitles(p) {
+      var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      var base = dark ? 0.6 : 0.35, baseLs = dark ? 0.1 : 0.18;
       var q = Math.min(1, Math.max(0, p / 0.35));
       document.querySelectorAll(".scrub-title").forEach(function (el) {
-        el.style.letterSpacing = (0.18 - q * 0.16).toFixed(3) + "em";
-        el.style.opacity = (0.35 + q * 0.65).toFixed(2);
+        el.style.letterSpacing = (baseLs - q * (baseLs - 0.02)).toFixed(3) + "em";
+        el.style.opacity = (base + q * (1 - base)).toFixed(2);
       });
     }
     /* pinned signature moment -> tree growth + title settle */
@@ -152,10 +154,12 @@
       if (track) {
         window.__signatureProgress = progressOf(track, vh * 0.9, -vh * 0.4);
         window.dispatchEvent(new Event("signature-progress"));
+        var dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var base = dark ? 0.6 : 0.35, baseLs = dark ? 0.1 : 0.18;
         var q = Math.min(1, Math.max(0, window.__signatureProgress / 0.35));
         scrubs.forEach(function (el) {
-          el.style.letterSpacing = (0.18 - q * 0.16).toFixed(3) + "em";
-          el.style.opacity = (0.35 + q * 0.65).toFixed(2);
+          el.style.letterSpacing = (baseLs - q * (baseLs - 0.02)).toFixed(3) + "em";
+          el.style.opacity = (base + q * (1 - base)).toFixed(2);
         });
       }
     }
